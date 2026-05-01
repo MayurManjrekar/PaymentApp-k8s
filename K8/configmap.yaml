@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: payment-config
-  namespace: payment
-data:
-  PAYMENT_PROCESSOR_URL: "http://payment-processor:8080"

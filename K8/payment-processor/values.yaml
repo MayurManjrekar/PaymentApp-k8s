@@ -1,0 +1,36 @@
+replicaCount: 2
+
+image:
+  repository: payment-processor
+  tag: "1.0"
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 8080
+
+configmap:
+  enabled: false
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "200m"
+    memory: "256Mi"
+
+probes:
+  path: /health
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  cpuUtilization: 50
+
+pdb:
+  enabled: true
+  minAvailable: 2
