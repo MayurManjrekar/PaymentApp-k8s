@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+      - name: gateway
+        imagePullPolicy: Never
+        image: payment-gateway:1.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PAYMENT_PROCESSOR_URL
+          value: "http://payment-processor:8080"
