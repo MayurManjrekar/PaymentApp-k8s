@@ -279,6 +279,7 @@ Expected response:
 
 **Note:** Future Enhancements
 * Enforce HTTPS by adding SSL/TLS certificates at the Ingress level
+* RBAC can be enforced on the cluster to manage access & permissions
 * Use Kubernetes Secrets for sensitive data instead of ConfigMaps
 * Implement container image scanning (Trivy, Snyk) and use hardened base images
 * Enhance observability with Node Exporter or a service mesh (Istio)
